@@ -37,17 +37,25 @@ class NeuralNetwork():
 
         for iteration in range(training_iterations):
             output = self.think(training_inputs)
-            print(training_inputs)
-            print(output)
+            print(output.T)
+            print(training_outputs)
             error = training_outputs - output.T
+            print('this is error')
+            print(error)
+            print('this is training input')
+            print(training_inputs)
             adjustments = np.dot(training_inputs.T, error.T * (output))
             print('THIS IS ADJUSTMENTS')
             print(adjustments)
             self.synaptic_weights = self.synaptic_weights + adjustments
+            #print('this is new synap')
+            #print(self.synaptic_weights)
 
     def think(self, inputs):
         inputs = inputs.astype(float)
-        outputs = self.sigmoid(np.dot(inputs, self.synaptic_weights))
+        outputs = (np.dot(inputs, self.synaptic_weights))
+        #print('OUTPUT')
+        #print(outputs)
         return outputs
 
 if __name__ == "__main__":
@@ -67,7 +75,7 @@ if __name__ == "__main__":
 
     training_outputs = np.array([[0,1,1,0]]).T
     """
-    neural_network.train(training_inputs, training_outputs, 500)
+    neural_network.train(training_inputs, training_outputs, 5)
 
     print('Synaptic Weights after training:  ')
     print(neural_network.synaptic_weights)
