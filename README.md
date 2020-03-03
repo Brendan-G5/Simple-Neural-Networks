@@ -1,3 +1,3 @@
 # Simple-Neural-Networks
 
-A collection on simple neural networks performing various tasks
+A collection of simple neural networks performing various tasks
